@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -236,4 +232,28 @@ hr {
   justify-items: center;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1799px) {
+  html {
+    font-size: 68.75%;
+  }
+}
+
+@media (max-width: 1023px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 37.5%;
+  }
 }
