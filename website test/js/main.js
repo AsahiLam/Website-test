@@ -52,3 +52,17 @@ window.addEventListener('load', function() {
       }
     });
   });
+
+  function updateScreenDimensions() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    
+    document.getElementById('width').textContent = `Width: ${width}px`;
+    document.getElementById('height').textContent = `Height: ${height}px`;
+  }
+
+  // Update on page load
+  window.onload = updateScreenDimensions;
+  
+  // Update on window resize
+  window.onresize = updateScreenDimensions;
