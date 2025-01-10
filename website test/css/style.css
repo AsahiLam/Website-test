@@ -133,7 +133,7 @@ hr {
   transition: opacity 0.2s ease-in-out;
 }
 
-.block:hover .block__image-area__meta-reading-time {
+.block--single-block:hover .block__image-area__meta-reading-time {
   opacity: 1;
   pointer-events: auto;
 }
