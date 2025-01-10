@@ -180,7 +180,7 @@ hr {
 
 .content__post-meta {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: #666;
 }
 
@@ -201,8 +201,9 @@ hr {
   color: inherit;
 }
 
-.content__discription {
-  font-size: 1.6em;
+.content__description {
+  font-size: 1.8em;
+  font-weight: 500;
   width: 25em;
   color: #555;
   line-height: 1.6;
@@ -213,7 +214,7 @@ hr {
   padding: 0.75rem 1.5rem;
   background-color: #5955d1;
   color: #fff;
-  font-size: 1.6em;
+  font-size: 1.8em;
   border-radius: 5px;
   text-decoration: none;
   font-weight: 600;
