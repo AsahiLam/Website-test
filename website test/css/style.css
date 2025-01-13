@@ -51,7 +51,7 @@ hr {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-template-rows: repeat(2, auto);
   height: 100%;
-  max-width: 90vw;
+  max-width: min(1360px, 95%);
   background: #f4f4f4;
   padding: 10px;
   justify-content: center;
@@ -205,6 +205,7 @@ hr {
   font-size: 1.8em;
   font-weight: 500;
   width: 25em;
+  max-width: 100%;
   color: #555;
   line-height: 1.6;
 }

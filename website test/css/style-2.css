@@ -1,0 +1,42 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  border: 1px solid black;
+  height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  display: grid;
+  grid-template-columns: repeat(9, 100px);
+  grid-template-rows: repeat(9, 100px);
+  gap: 10px;
+}
+
+.box {
+  background: linear-gradient(
+    45deg,
+    pink 0%,
+    rgba(255, 182, 203) 50%,
+    rgba(230, 182, 203) 100%
+  );
+}
+
+.box.box-1 {
+  grid-row: span 2;
+  grid-column: span 5;
+}
+
+.box.box-2 {
+  grid-area: 4 / 4 / 8 / -3;
+  background: yellow;
+  z-index: 1;
+}
+
+.box.box-3 {
+  grid-area: 3 / 1 / -1 / -1;
+}
