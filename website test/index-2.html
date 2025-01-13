@@ -7,8 +7,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" async rel="stylesheet" media="all">
-    
+
     <title>NEWS</title>
     <script type="application/ld+json">
       {
@@ -376,6 +375,11 @@
         
         window.addEventListener('resize', updateBlockClass);
         });
+
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap';
+        document.head.appendChild(link);
     </script>
     <script src="https://kit.fontawesome.com/bb2efc70e0.js" crossorigin="anonymous"></script>
   </body>
