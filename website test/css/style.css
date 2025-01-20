@@ -66,7 +66,7 @@ aside {
 }
 
 .hpv-infection-paths__content-box {
-  width: 48%;
+  width: 38%;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -112,7 +112,7 @@ aside {
 .hpv-infection-paths__contents .content-box__images {
   justify-items: center;
   align-content: center;
-  width: 40%;
+  width: 38%;
   height: 100%;
   max-width: 17rem;
   aspect-ratio: 1 / 1;
@@ -216,13 +216,13 @@ aside {
     top: 63%;
     left: 45%;
   }
-
-  .content-box__description {
-    font-size: 1.2443438914rem;
-  }
-
+  
   .content-box__description--break-line{
     display:none;
+  }
+
+  .content-box__description{
+    font-size: 1rem;
   }
 }
 
@@ -230,35 +230,35 @@ aside {
   .hpv-infection-paths__content-box{
     width: 50%;
   }
+
   .hpv-infection-paths__content-box:nth-child(1) {
-    top: 8%;
+    top: 9%;
     left: 39%;
   }
 
   .hpv-infection-paths__content-box:nth-child(2) {
-    top: 23%;
-    left: 48%;
+    top: 25%;
+    left: 49%;
   }
 
   .hpv-infection-paths__content-box:nth-child(3) {
-    top: 44%;
-    left: 48%;
+    top: 48%;
+    left: 49%;
   }
 
   .hpv-infection-paths__content-box:nth-child(4) {
-    top: 60%;
-    left: 42%;
+    top: 64%;
+    left: 45%;
   }
-
-  .content-box__description {
-    font-size: 0.90497737556rem;
-  }
-
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
   .hpv-infection-paths__title {
     font-size: 1.13122171946rem;
+  }
+
+  .hpv-infection-paths__content-box{
+    width: 40%;
   }
 
   .hpv-infection-paths__content-box:nth-child(1) {
@@ -282,14 +282,15 @@ aside {
   }
 
   .content-box__description {
-    font-size: 1.03734439834rem;
+    font-size: 1.35746606335rem;
   }
-
-
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  
+  .hpv-infection-paths__content-box{
+    width: 40%;
+  }
+
   .hpv-infection-paths__content-box:nth-child(1) {
     top: 15%;
     left: 45%;
@@ -309,7 +310,7 @@ aside {
     top: 65%;
     left: 50%;
   }
-
+  
   .content-box__description {
     font-size: 1.80995475113rem;
   }
