@@ -1,254 +1,341 @@
-html {
-  font-size: 62.5%;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.border {
+  border: 1px solid black;
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  margin: 0;
-  overflow-x: hidden;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 800;
-  font-style: normal;
+aside {
+  width: 480px;
+  height: 480px;
 }
 
-.main-containter {
-  display: flex;
-  flex-direction: column;
+.hpv-infection-paths {
+  overflow: hidden;
+  padding: 16rem 3rem;
+  background-color: #a1eee9;
+  background-image: linear-gradient(135deg, #a1eee9 0%, #bae5e6 48%, #71a6e1 96%);
+}
+
+.hpv-infection-paths__wrapper {
+  position: relative;
+}
+
+.hpv-infection-paths__model {
+  width: 55%;
+  height: 100%;
+}
+
+.hpv-infection-paths__mina {
+  position: relative;
+  z-index: 2;
+  max-width: 582px;
+  width: 100%;
+  margin-bottom: 6.5%;
+  aspect-ratio: 582 / 715.48;
+}
+
+.hpv-infection-paths__circles {
+  width: 100%;
+  max-width: 1044px;
+  aspect-ratio: 1044 / 849;
+  position: absolute;
+  z-index: 0;
+  top: -21.5%;
+  left: -2%;
+}
+
+.hpv-infection-paths__title {
+  position: absolute;
+  bottom: -7%;
+  font-size: 1.65975103734rem;
+}
+
+.hpv-infection-paths__title--main {
+  font-weight: 400;
+  font-size: 1.33333333333em;
+  line-height: 1.8;
+}
+
+.hpv-infection-paths__title--highlight {
+  font-size: 2.33333333333em;
+  line-height: 1.2;
+  color: var(--primary-500);
+}
+
+.hpv-infection-paths__contents {
   width: 100%;
   height: 100%;
-  gap: 100px;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0;
 }
 
-.block {
-  width: 100%;
-  height: 25.5rem;
-  max-width: 84.2rem;
+.hpv-infection-paths__content-box {
+  width: 48%;
+  position: absolute;
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  cursor: pointer;
-  margin: 10px;
+  gap: 2rem;
 }
 
-hr {
-  width: 80%;
-  height: 1px;
-  color: darkgray;
+.hpv-infection-paths__content-box::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 29rem;
+  max-width: 300px;
+  height: 80%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.31) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 16px;
 }
 
-.block--multiple {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: repeat(2, auto);
+.hpv-infection-paths__content-box:nth-child(1) {
+  top: 5%;
+  left: 53%;
+}
+
+.hpv-infection-paths__content-box:nth-child(2) {
+  top: 32%;
+  left: 60%;
+}
+
+.hpv-infection-paths__content-box:nth-child(3) {
+  top: 62%;
+  left: 61%;
+}
+
+.hpv-infection-paths__content-box:nth-child(4) {
+  top: 87.5%;
+  left: 57%;
+}
+
+.hpv-infection-paths__contents .content-box__images {
+  justify-items: center;
+  align-content: center;
+  width: 30%;
   height: 100%;
-  max-width: min(1360px, 95%);
-  background: #f4f4f4;
-  padding: 10px;
-  justify-content: center;
+  max-width: 17rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  background: #e0f5f3;
+  z-index: 1;
+}
+
+.hpv-infection-paths__contents .content-box__image {
+  width: 70%;
+}
+
+.content-box__description {
+  padding: 0;
+  width: 100%;
+  font-size: 1.86721991701rem;
+  font-weight: 400;
   align-content: center;
 }
 
-.block--vertical {
-  flex-direction: column;
-  width: 40em;
-  height: auto;
-  gap: 30px;
-}
+@media (max-width: 991px) {
+  .hpv-infection-paths {
+    padding: 6rem 0;
+  }
 
-.block__image-area {
-  position: relative;
-  width: 40rem;
-  height: 25.5rem;
-  margin-right: 0;
-  border-radius: 16px;
-  transform: translate3d(0, 0, 0);
-  overflow: hidden;
-}
+  .hpv-infection-paths__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
-.block__image-area::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
+  .hpv-infection-paths__model {
+    width: 70%;
+  }
 
-.post-meta {
-  letter-spacing: 0.1em;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
-}
+  .hpv-infection-paths__title {
+    display: flex;
+    position: unset;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
 
-.post-meta__category {
-  display: flex;
-  gap: 1rem;
-  line-height: 1.2;
-  font-size: 1.1rem;
-}
+  .hpv-infection-paths__mina {
+    aspect-ratio: 309.88 / 380.95;
+    margin-top: 6%;
+  }
 
-.post-meta__categories {
-  display: flex;
-  gap: 1rem;
-}
+  .hpv-infection-paths__circles {
+    aspect-ratio: 402.67 / 333.04;
+    top: 2%;
+    left: -10%;
+  }
 
-.post-meta__category--h3 {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  background: white;
-  font-size: 1em;
-  margin: 0;
-}
+  .hpv-infection-paths__content-box::after {
+    height: 100%;
+    top: 0;
+    left: 5%;
+    width: 20rem;
+  }
 
-.post-meta__category--a {
-  color: black;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.block__image-area__meta-reading-time {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
-  color: white;
-  background: rgba(41, 41, 75, 0.15);
-  border-radius: 50px;
-  padding: 0.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.block--single:hover .block__image-area__meta-reading-time {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.block__image-area__meta-reading-time--span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1.2;
-}
-
-.background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.background__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.block__content-area {
-  flex-grow: 1;
-  height: 100%;
-}
-
-.block__content-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1rem;
-  font-size: 1rem;
-}
-
-.content__post-meta {
-  margin: 0;
-  font-size: 1.4em;
-  color: #666;
-}
-
-.content__author {
-  text-decoration: none;
-  color: #5955d1;
-}
-
-.content__title {
-  font-size: 2.4em;
-  font-weight: bold;
-  color: #000;
-  margin: 0;
-}
-
-.content__title a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.content__description {
-  font-size: 1.8em;
-  font-weight: 500;
-  width: 25em;
-  max-width: 100%;
-  color: #555;
-  line-height: 1.6;
-}
-
-.btn-discover-more {
-  align-self: flex-start;
-  padding: 0.75rem 1.5rem;
-  background-color: #5955d1;
-  color: #fff;
-  font-size: 1.8em;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: auto;
-}
-
-.btn-discover-more:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.block__item {
-  justify-items: center;
-  width: 100%;
-  height: 100%;
+  .hpv-infection-paths__content-box {
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 575px) {
-  html {
-    font-size: 43.75%;
+  .hpv-infection-paths__model {
+    width: 60%;
+  }
+
+  .hpv-infection-paths__circles {
+    top: 0;
+    left: -10%;
+    width: 90%;
+  }
+
+  .hpv-infection-paths__title {
+    font-size: 0.79185520362rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 12%;
+    left: 40%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 27%;
+    left: 52%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 48%;
+    left: 52%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 63%;
+    left: 45%;
+  }
+
+  .content-box__description {
+    font-size: 0.79185520362rem;
   }
 }
 
-@media (max-width: 1100px) {
-  .block--multiple {
-    grid-template-columns: repeat(auto-fit, minmax(40em, 1fr));
-    max-width: 100vw;
+@media (min-width: 576px) and (max-width: 768px) {
+  .hpv-infection-paths__title {
+    font-size: 1.13122171946rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 15%;
+    left: 45%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 30%;
+    left: 58%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 50%;
+    left: 58%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 68%;
+    left: 50%;
+  }
+
+  .content-box__description {
+    font-size: 1.03734439834rem;
   }
 }
 
-@media (min-width: 576px) {
-  html {
-    font-size: 56.25%;
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 15%;
+    left: 45%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 30%;
+    left: 58%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 50%;
+    left: 58%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 65%;
+    left: 50%;
+  }
+
+  .content-box__description {
+    font-size: 1.80995475113rem;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1599px) {
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 10%;
+    left: 58%;
+  }
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 36%;
+    left: 64%;
+  }
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 64%;
+    left: 64%;
+  }
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 87.5%;
+    left: 60%;
+  }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1199px) {
+  .hpv-infection-paths__title {
+    font-size: 0.82987551867rem;
+  }
+
+  .hpv-infection-paths__content-box {
+    gap: 1rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__image {
+    width: 60%;
+  }
+
+  .content-box__description {
+    font-size: 1.03734439834rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .hpv-infection-paths__title {
+    font-size: 1.03734439834rem;
+  }
+
+  .hpv-infection-paths__content-box {
+    gap: 1rem;
+  }
+
+  .content-box__description {
+    font-size: 1.24481327801rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1599px) {
+  .hpv-infection-paths__title {
+    font-size: 1.34854771784rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__image {
+    width: 60%;
+  }
+
+  .content-box__description {
+    font-size: 1.65975103734rem;
   }
 }

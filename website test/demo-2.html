@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Test web" >
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="stylesheet" href="css/main.css" >
+    <title>Demo</title>
+    <style>
+        .border{
+            border: 1px solid black;
+        }
+
+        /*      TEST      */
+
+        aside{
+            width:480px;
+            height:480px
+        }
+        /*                */
+
+        .hpv-infection-paths{
+            padding: 5rem 2rem;
+            position:relative;    
+        }
+
+        .hpv-infection-paths::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #78e8e1  0%, #83e5f3  36%, #7ec8e2 68%, #0093E9 99%);
+            opacity: 0.65;
+        }
+
+        .hpv-infection-paths__wrapper{
+            position:relative;
+            overflow: hidden;
+        }
+
+        .hpv-infection-paths__thumb{
+            position:relative;
+            width: 70%;
+            max-width: 668.21px;
+            aspect-ratio: 668.21 / 821.45;
+            overflow:hidden;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+        }
+        
+        .hpv-infection-paths__thumb img{
+            object-position: bottom;
+            aspect-ratio: 668.21 / 992.65;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hpv-infection-paths__title {
+            font-size: 3.87275rem;
+            position: absolute;
+            bottom: 0; 
+        }
+
+        .hpv-infection-paths__title span{
+            font-size: 0.85714285714em;
+            font-weight: 400;
+        }
+
+        .hpv-infection-paths__title h2{
+            line-height: 1.2;  
+            color: var(--primary-500);
+        }
+
+        .hpv-infection-paths__eclipses {
+            position: absolute;
+            width: 105%;
+            max-width:100rem;
+            aspect-ratio: 1 / 1;
+            z-index: -1;
+            top:0;
+            left:0;
+            transform: translate(-25%, 0);
+            
+        }
+        
+        .hpv-infection-paths__eclipses svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .hpv-infection-paths__contents{
+            font-size: 0.82644628099rem;
+            position:absolute;
+            top:0;
+            left:55%;
+            height:100%;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: column;
+        }
+
+        .content-box{
+            display:flex;
+            position:relative;       
+        }
+
+        .content-box__images{
+            background: #E0F5F3;
+            width: fit-content;
+            border-radius: 100%;
+            padding: 2.5em;
+        }
+
+        .content-box__image {
+            height: 10em;
+            width: 10em;
+        }   
+
+        .content-box__description{
+            padding: 0 4em 0 1em;
+            font-size: 2em;
+            align-content: center;
+        }  
+
+        .content-box__images::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left:10%;
+            width: 45rem;
+            max-width:300px;
+            height: 80%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.31) 0%, rgba(255, 255, 255, 0) 100%);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .content-box:nth-child(2), .content-box:nth-child(3) {
+            transform: translateX(5rem);
+        }
+
+        .content-box::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.8); /* Line color */
+            top: 0; /* Adjust line's top positioning to connect */
+            left: 50%;
+            transform: translateX(-50%); /* Center the line horizontally */
+            height: 50%; /* Length of the connecting line */
+            z-index: -1; /* Place it behind the content box */
+        }   
+
+        .content-box:nth-child(1):before {
+            top: -30%; 
+            height: 60%; 
+        }
+
+
+        @media (max-width: 991px){
+            .hpv-infection-paths__wrapper{
+                position:relative;
+                overflow: hidden;
+                display:flex;
+                flex-flow:column;
+            }
+            .hpv-infection-paths__description{
+                overflow: hidden;
+                position:relative;
+            }
+            .hpv-infection-paths__title{
+                position:unset;
+                margin: 0 auto;
+                text-align: center;
+            } 
+            .hpv-infection-paths__title span{
+                line-height: 2.2
+            }
+            .hpv-infection-paths__eclipses{
+                width:90%;
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+                -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+            .hpv-infection-paths__contents{
+                height: 80%;
+                top: 15%;
+                font-size: 0.735292rem;
+            }   
+            .content-box__image {
+                height: 5em;
+                width: 5em;
+            }
+            .content-box__images::after {
+                height:100%;
+                top:0;
+                left:10%;
+                max-width:30rem;
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+            }          
+        }
+
+        @media (max-width: 768px) {
+            .hpv-infection-paths__title{
+                font-size: 3.016591rem;
+            } 
+        }
+        @media (min-width: 576px) and (max-width: 768px) {
+            .hpv-infection-paths__contents{
+                font-size: 0.5656108rem;
+            }
+        }
+        @media (max-width: 575px) {
+            .hpv-infection-paths__contents{
+                font-size: 0.4524886rem;
+            }
+
+            .hpv-infection-paths__title{
+                font-size: 1.885369rem;
+            } 
+        }
+
+        @media only screen and (min-width: 992px) and (max-width: 1599px) {
+            .hpv-infection-paths__contents{
+                right:0;
+                font-size: 0.674275rem;
+            }
+            .hpv-infection-paths__thumb{
+                width:50%;
+            }
+            .hpv-infection-paths__title{
+                font-size: 2.62794rem;
+            }
+            .hpv-infection-paths__eclipses{
+                width:80%;
+            }
+        }
+
+        @media only screen and (min-width: 1100px) and (max-width: 1399px) {
+            .hpv-infection-paths__contents{
+                font-size: 0.518672rem;
+                left:52%;
+            }
+            .hpv-infection-paths__thumb{
+                width:50%;
+            }
+            .hpv-infection-paths__title{
+                font-size: 2.07469rem;
+            }
+            .hpv-infection-paths__eclipses{
+                width:80%;
+            }
+        }
+
+        line {
+      stroke-width: 2px;
+      stroke: rgb(255, 255, 255);
+    }
+
+    </style>
+  </head>
+  <body>
+    <main class="container container-content">
+        <div class="main-container box-shadow-md">
+            <div class="body-main-container">
+                <div class="main-contain">
+                    <div class="hpv-infection-paths">
+                        <div class="hpv-infection-paths__wrapper">
+                            <div class="hpv-infection-paths__description">
+                                <div class="hpv-infection-paths__thumb">
+                                    <img src="img/section-1.png" alt="section-1-background">
+                                </div>
+                                <div class="hpv-infection-paths__eclipses">
+                                    <svg>
+                                        <circle cx="45%" cy="52%" r="45%" stroke="rgba(255, 255, 255, 1)" fill="none" stroke-width="1" stroke-dasharray="40, 40" />
+                                        <circle cx="90%" cy="100" r="3" fill="white" id="point-1"/>
+                                        <circle cx="100" cy="190" r="3" fill="white" id="point-2"/>
+                                        <circle cx="10" cy="100" r="3" fill="white" id="point-3"/>
+                                        <circle cx="100" cy="10" r="3" fill="white" id="point-4"/>
+                                        <circle cx="45%" cy="52%" r="37%" stroke="rgba(255, 255, 255, 0.32)" fill="none" stroke-width="1" stroke-dasharray="40, 40" />
+                                        <line id="line-1"/>
+                                        <line id="line-2"/>
+                                        <line id="line-3"/>
+                                        <line id="line-4"/>
+                                    </svg>                       
+                                </div>
+                                <div class="hpv-infection-paths__contents">
+                                    <div class="content-box">
+                                        <div class="content-box__images">
+                                            
+                                            <img class="content-box__image" id="content-1" src="img/icon-khong-an-toan.png" alt="icon-khong-an-toan"/>
+                                        </div>
+                                        <div class="content-box__description">Tình dục không an toàn<br>với người nhiễm HPV <sup>(8)</sup></div>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="content-box__images">
+                                            <img class="content-box__image" src="img/icon-bneh.png" alt="icon-bneh"/>
+                                        </div>
+                                        <div class="content-box__description">Đường tự lây nhiễm từ<br>các bộ phận bị bệnh<br>trên cơ thể <sup>(8)</sup></div>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="content-box__images">
+                                            <img class="content-box__image" src="img/icon-virus.png" alt="icon-virus"/>
+                                        </div>
+                                        <div class="content-box__description">Đường trung gian: tiếp<br>xúc với các bề mặt bị<br>nhiễm vi rút <sup>(8)</sup></div>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="content-box__images">
+                                            <img class="content-box__image" src="img/icon-mom.png" alt="icon-mom"/>
+                                        </div>
+                                        <div class="content-box__description">Đường lây truyền dọc từ<br>mẹ sang con <sup>(9)</sup></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hpv-infection-paths__title">
+                                <span>CÁC CON ĐƯỜNG</span>
+                                <h2>LÂY NHIỄM HPV<br>PHỔ BIẾN</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class=""></aside>
+    </main>
+    <div class="dimension">
+        <p id="width"></p>
+        <p id="height"></p>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        $(function() {
+          // Points and corresponding line IDs
+          var points = [
+            ['#point-1', '#content-1', '#line-1'],
+            ['#point-2', '#content-2', '#line-2'],
+            ['#point-3', '#content-3', '#line-3'],
+            ['#point-4', '#content-4', '#line-4']
+          ];
+    
+          // Function to draw lines
+          points.forEach(function(pair) {
+            var [start, end, lineId] = pair;
+    
+            // Get the center of the start and end points using getBoundingClientRect
+            var startRect = $(start)[0].getBoundingClientRect();
+            var endRect = $(end)[0].getBoundingClientRect();
+    
+            // Calculate the center of each element
+            var startX = startRect.left + startRect.width / 2;
+            var startY = startRect.top + startRect.height / 2;
+            var endX = endRect.left + endRect.width / 2;
+            var endY = endRect.top + endRect.height / 2;
+    
+            // Set the line attributes based on the centers
+            $(lineId).attr({
+              x1: startX,
+              y1: startY,
+              x2: endX,
+              y2: endY
+            });
+          });
+        });
+      </script>
+  </body>
+</html>
