@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Test web" >
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="stylesheet" href="css/main.css" >
+    <link rel="stylesheet" href="css/style.css">
+    <title>Demo</title>
+    <style>
+
+        .body-main-container{
+            background: #d0f4f4;
+        }
+
+        .common-hpv-diseases{
+            position:relative;
+            padding: 5rem 0;
+            width:100%;
+            font-size: 1.03734439834rem;
+            z-index: 0;
+        }
+
+        .common-hpv-diseases__wrapper{
+            height: inherit;
+            display: flex;
+            position:relative;
+            flex-direction: column; 
+            z-index: 0;
+        }
+
+        .common-hpv-diseases::before{
+            content:'';
+            position: absolute;
+            top:0;
+            left:0;
+            mask-image: linear-gradient(168.15deg, rgba(217, 217, 217, 0) 71.35%, #737373 112.31%);
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(291.33deg, #009585 -25.46%, #00CFA9 46.97%);
+            z-index: -1;
+        }
+
+        .common-hpv-diseases__title{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.6em;
+            position:relative;
+        }
+
+        .title-main, .title-highlight{
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .title-highlight{
+            background: linear-gradient(90deg, #00D6E2 0%, #009585 100%);
+            border-radius: 50px;
+            padding: 0.2em 1.5em;
+            color: white;
+        }
+
+        .title-classify{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 4em;
+        }
+    
+        .title-classify__tag{
+            font-size: 1.5em;
+            display:flex;
+            flex-direction: row;
+            gap: 0.75em;
+            font-weight: 400;
+            color: #707a73;
+            padding: 0.5em 1em;
+            border-radius: 50px;
+            background-color:transparent;
+            overflow:hidden;
+            cursor:pointer;
+            position: relative;
+            z-index:0;
+            transition:  color 0.3s ease;
+        }
+
+        .title-classify__tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 50px;
+            background-color: currentColor; 
+            z-index: -1; 
+            transition: color 0.3s ease, width 0.3s ease;
+        }
+
+        .title-classify__tag.active::before {
+            width: 100%;
+        }
+
+        .male-tag.active {
+            color: #ffffff;
+        }
+
+        .male-tag.active::before {
+            background-color: #005CFF;
+        }
+
+        .female-tag.active {
+            color: #000000;
+        }
+
+        .female-tag.active::before {
+            background-color: #FEE000;
+        }
+
+        .both-genders-tag.active {
+            color: #000000;
+        }
+
+        .both-genders-tag.active::before {
+            background-color: #009585;
+        }
+
+        .title-classify__icon{
+            color:#FFFFFF;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .title-classify__tag.active .title-classify__icon {
+            transform: rotate(45deg);
+        }
+
+        .title-classify__icon::before{
+            content: '';
+            position: absolute;
+            background: #D9D9D94D;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            width: 1.5em;
+            height: 1.5em;
+            z-index: 0;
+        }
+
+        .common-hpv-diseases__contents{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+            overflow:hidden;
+        }
+
+        .common-hpv-diseases__areas{
+            width: 30%;
+            height: 100%;
+        }
+
+        .common-hpv-diseases__areas.area-left, .common-hpv-diseases__areas.area-right{
+            display:flex;
+            flex-direction: column;
+            gap: 2.5em;
+        }
+
+        .common-hpv-diseases__statistics{
+            display:flex;
+            flex-direction: column;
+            gap: 2.5em;
+        }
+
+        .common-hpv-diseases__areas:not(.area-left, .area-right){
+            position: relative;
+            
+        }
+
+        .common-hpv-diseases__image{
+            filter: grayscale(1) blur(1.5px);   
+            transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .common-hpv-diseases__image.male{
+            position:relative;
+            z-index: 1;
+            aspect-ratio: 524 / 1176;
+            width: 20em;
+            left: 10%;
+        }
+
+        .common-hpv-diseases__image.female{
+            position: absolute;
+            top: 0;
+            left: 35%;
+            z-index: 2;
+            aspect-ratio: 524 / 1176;
+            width: 20em;
+        }
+
+        .common-hpv-diseases__image.male.active{
+            filter: grayscale(0) blur(0);
+            z-index: 3;
+        }
+
+        .common-hpv-diseases__image.female.active{
+            filter: grayscale(0) blur(0);
+            z-index: 4;
+        }
+
+        .common-hpv-diseases__image:not(.active):hover {
+            transform: scale(1.02);
+        }
+
+        .common-hpv-diseases__statistic{
+            position: relative;
+            padding: 1.5em 0 1.5em 6em;
+            overflow:hidden;
+            border-radius: 0 80px 80px 0;
+            color: #adadad;
+            transition: color 0.3s ease;
+        }
+
+        .common-hpv-diseases__statistic.active{
+            color: #0D867A;
+        }
+
+        .common-hpv-diseases__statistic::before{
+            content: '';
+            position: absolute;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.092) 100%);
+            transform: rotate(180deg);
+            top: -10%;
+            width: 100%;
+            height: 120%;
+        }
+
+        .area-right .common-hpv-diseases__statistic{
+            padding: 1.5em 0em 1.5em 0;
+            border-radius: 80px 0 0 80px;
+        }
+
+        .area-right .common-hpv-diseases__statistic::before{
+            transform: rotate(0);
+        }
+
+        .area-right .common-hpv-diseases__disease-name{
+            margin-left:3em;
+        }
+
+        .area-right .common-hpv-diseases__disease-percent{
+            margin-left:1em;
+        }
+
+        .common-hpv-diseases__disease-percent{
+            font-size: 4.5em;
+            line-height: 1.2;
+            font-weight: 800;
+  
+        }
+
+        .common-hpv-diseases__disease-name{
+            font-size: 1.5em;
+            font-weight: 500;
+    
+        }
+
+        .common-hpv-diseases__button{
+            align-self: center;
+        }
+        .btn-cta{
+            display: block;
+            width: fit-content;
+            transition: all 250ms ease-in-out;
+            text-transform: uppercase;
+            background-color: var(--third-500);
+            color: var(--neutral-900);
+            font-family: Unbounded;
+            margin-top: 1em;
+            font-size: 1.2em;
+            padding: 1em 2em;
+            border: 1px solid var(--neutral-900);
+            border-radius: 3.2em;
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0px 4px 4px 0px #00000040;
+        }
+
+        .cta-secondary {
+            background-color: var(--secondary-500);
+            color: var(--primary-500);
+        }
+
+        @media (max-width: 575px) {
+            .common-hpv-diseases{
+                font-size: 0.5rem;
+            }
+
+            .common-hpv-diseases__areas:not(.area-right,.area-left){
+                width: 60%;
+                position: relative;
+                left:53%;
+                transform:translateX(-50%);
+                z-index: 1;
+            }
+
+            .common-hpv-diseases__areas.area-right,.common-hpv-diseases__areas.area-left{
+                position:absolute;
+                justify-content: center;
+            }
+
+            .common-hpv-diseases__areas.area-right{
+                right:0;
+            }
+
+            .common-hpv-diseases__image.male{
+                width: 30em;
+            }
+            .common-hpv-diseases__image.female{
+                left: 31%;
+                width: 30em;
+            }   
+        }
+        @media (min-width: 576px) and (max-width: 768px) {
+            .common-hpv-diseases{
+                font-size: 0.7rem;
+            }
+
+            .common-hpv-diseases__areas:not(.area-right,.area-left){
+                width: 70%;
+                position: relative;
+                left:60%;
+                transform:translateX(-50%);
+                z-index: 1;
+            }
+
+            .common-hpv-diseases__image.male{
+                width: 30em;
+            }
+            .common-hpv-diseases__image.female{
+                left: 31%;
+                width: 30em;
+            }   
+
+            .common-hpv-diseases__areas.area-right,.common-hpv-diseases__areas.area-left{
+                position:absolute;
+                justify-content: center;
+            }
+
+            .common-hpv-diseases__areas.area-right{
+                right:0;
+            }
+
+        }
+        @media only screen and (min-width: 769px) and (max-width: 991px) {
+            .common-hpv-diseases{
+                font-size: 0.88174273858rem;
+            }
+            .common-hpv-diseases__image.male{
+                left: 15%;
+            }
+        }
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .common-hpv-diseases__image.male{
+                left: 0;
+            }
+            .common-hpv-diseases__image.female{
+                left: 30%;
+            }   
+        }
+        @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+            .common-hpv-diseases{
+                font-size: 0.9336099585rem;
+            }
+            .common-hpv-diseases__image.male{
+                left: 2em;
+            }
+            .common-hpv-diseases__image.female{
+                left: 35%;
+            }
+        }
+        @media only screen and (min-width: 1400px) and (max-width: 1599px) {
+            .common-hpv-diseases__image.male{
+                left: 0;
+            }
+            .common-hpv-diseases__image.female{
+                left: 30%;
+            }
+        }
+
+    </style>
+  </head>
+  <body>
+    <main class="container container-content">
+        <div class="main-container box-shadow-md">
+            <div class="body-main-container">
+                <div class="main-contain">
+                    <div class="common-hpv-diseases">
+                        <div class="common-hpv-diseases__wrapper">
+                            <div class="common-hpv-diseases__title">
+                                <div class="title-main">MỘT SỐ BỆNH, UNG THƯ PHỔ BIẾN</div>
+                                <div class="title-highlight">DO HPV GÂY RA <sup>(8)</sup></div>
+                                <div class="title-classify">
+                                    <div class="title-classify__tag male-tag" onclick="toggleActive(this,'male')" id="male-tag">
+                                        <div class="title-classify__gender">Ở NAM</div>
+                                        <div class="title-classify__icon">+</div>
+                                    </div>
+                                    <div class="title-classify__tag both-genders-tag active" onclick="toggleActive(this,'both-genders')">
+                                        <div class="title-classify__gender">Ở 2 GIỚI</div>
+                                        <div class="title-classify__icon">+</div>
+                                    </div>
+                                    <div class="title-classify__tag female-tag" onclick="toggleActive(this,'female')" id="female-tag">
+                                        <div class="title-classify__gender">Ở NỮ</div>
+                                        <div class="title-classify__icon">+</div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="common-hpv-diseases__contents">
+                                <div class="common-hpv-diseases__areas area-left">
+                                    <div class="common-hpv-diseases__statistics">
+                                        <div class="common-hpv-diseases__statistic statistic-both-genders active">
+                                            <div class="common-hpv-diseases__disease-percent">90%</div>
+                                            <div class="common-hpv-diseases__disease-name">MỤN CÓC SINH HỌC</div>
+                                        </div>
+                                        <div class="common-hpv-diseases__statistic statistic-both-genders active">
+                                            <div class="common-hpv-diseases__disease-percent">88%</div>
+                                            <div class="common-hpv-diseases__disease-name">UNG THƯ HẬU MÔN</div>
+                                        </div>
+                                        <div class="common-hpv-diseases__statistic statistic-male">
+                                            <div class="common-hpv-diseases__disease-percent ">50%</div>
+                                            <div class="common-hpv-diseases__disease-name">UNG THƯ DƯƠNG VẬT</div>
+                                        </div>
+                                    </div>
+                                    <div class="common-hpv-diseases__button">
+                                        <a class="btn-cta" href="#" title="du-phong-nam">DỰ PHÒNG CHO NAM</a>
+                                    </div>
+                                </div>
+                                <div class="common-hpv-diseases__areas">
+                                    <svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+                                        <image 
+                                            xlink:href="img/common-hpv-model-nam.webp" 
+                                            class="common-hpv-diseases__image male active" 
+                                            id="male-img" 
+                                            x="0" 
+                                            y="0" 
+                                            width="200" 
+                                            height="200" 
+                                        />
+                                        <path 
+                                            d="M0,0 L200,0 L200,200 L0,200 Z" 
+                                            fill="transparent" 
+                                            pointer-events="visible" 
+                                            onclick="document.getElementById('male-tag').click()" 
+                                        />
+                                        <image 
+                                            xlink:href="img/common-hpv-model-nu.webp" 
+                                            class="common-hpv-diseases__image female active" 
+                                            id="female-img" 
+                                            x="250" 
+                                            y="0" 
+                                            width="200" 
+                                            height="200" 
+                                        />
+                                        <path 
+                                            d="M250,0 L450,0 L450,200 L250,200 Z" 
+                                            fill="transparent" 
+                                            pointer-events="visible" 
+                                            onclick="document.getElementById('female-tag').click()" 
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="common-hpv-diseases__areas area-right">
+                                    <div class="common-hpv-diseases__statistics">
+                                        <div class="common-hpv-diseases__statistic statistic-both-genders active">
+                                            <div class="common-hpv-diseases__disease-percent">70%</div>
+                                            <div class="common-hpv-diseases__disease-name">UNG THƯ HẦU HỌNG</div>
+                                        </div>
+                                        <div class="common-hpv-diseases__statistic statistic-female">
+                                            <div class="common-hpv-diseases__disease-percent">100%</div>
+                                            <div class="common-hpv-diseases__disease-name">UNG THƯ CỔ TỬ CUNG</div>
+                                        </div>
+                                        <div class="common-hpv-diseases__statistic statistic-female">
+                                            <div class="common-hpv-diseases__disease-percent">78%</div>
+                                            <div class="common-hpv-diseases__disease-name">UNG THƯ ÂM ĐẠO</div>
+                                        </div>
+                                    </div>
+                                    <div class="common-hpv-diseases__button">
+                                        <a class="btn-cta cta-secondary" href="#" title="du-phong-nu">DỰ PHÒNG CHO NỮ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                    <!-- <div class="hpv-infection-paths">
+                        <div class="hpv-infection-paths__wrapper">
+                            <div class="hpv-infection-paths__model">
+                                <picture>
+                                    <source srcset="img/model-mina-mobile-1.webp" media="(max-width: 991px)" >
+                                    <img class="hpv-infection-paths__mina" src="img/model-mina.webp" alt="Hình ảnh minh họa model Mina">
+                                </picture>  
+                                <picture>       
+                                    <source srcset="img/background-circles-mobile.webp" media="(max-width: 991px)" >           
+                                    <img class="hpv-infection-paths__circles" src="img/background-circles.webp" alt="Background circles">
+                                </picture>                       
+                            </div>                         
+                            <div class="hpv-infection-paths__title">
+                                    <h2>
+                                        <span class="hpv-infection-paths__title--main">CÁC CON ĐƯỜNG</span>
+                                        <br>
+                                        <span class="hpv-infection-paths__title--highlight">LÂY NHIỄM HPV<br>PHỔ BIẾN</span>
+                                    </h2>
+                            </div>
+                            <div class="hpv-infection-paths__contents">                            
+                                <div class="hpv-infection-paths__content-box">
+                                    <div class="content-box__images">
+                                        <div class="content-box__circle"></div>    
+                                        <img class="content-box__image" src="img/icon-khong-an-toan.webp" alt="icon-khong-an-toan">
+                                    </div>
+                                    <div class="content-box__description">Tình dục không an toàn <br> với người nhiễm HPV <sup>(8)</sup></div>
+                                </div>
+                                <div class="hpv-infection-paths__content-box">
+                                    <div class="content-box__images">
+                                        <div class="content-box__circle"></div>    
+                                        <img class="content-box__image" src="img/icon-bneh.webp" alt="icon-bneh">
+                                    </div>
+                                    <div class="content-box__description">Đường tự lây nhiễm từ<br> các bộ phận bị bệnh<br> trên cơ thể <sup>(9)</sup></div>
+                                </div>
+                                <div class="hpv-infection-paths__content-box">
+                                    <div class="content-box__images">
+                                        <div class="content-box__circle"></div>    
+                                        <img class="content-box__image" src="img/icon-virus.webp" alt="icon-virus">
+                                    </div>
+                                    <div class="content-box__description">Đường trung gian: tiếp<br> xúc với các bề mặt bị<br> nhiễm vi rút <sup>(10)</sup></div>
+                                </div>
+                                <div class="hpv-infection-paths__content-box">
+                                    <div class="content-box__images">
+                                        <div class="content-box__circle"></div>    
+                                        <img class="content-box__image" src="img/icon-mom.webp" alt="icon-mom">
+                                    </div>
+                                    <div class="content-box__description">Đường lây truyền dọc từ<br>mẹ sang con <sup>(9)</sup></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="hpv-preventative-methods border">
+                        <div class="hpv-preventative-methods__wrapper border">
+                            <div class="hpv-preventative-methods__contents border">
+                                <div class="hpv-preventative-methods__title">
+                                    <h2>
+                                        CÁC PHƯƠNG PHÁP
+                                        <br>
+                                        PHÒNG TRÁNH HPV<sup>(3)</sup>
+                                    </h2>
+                                </div>
+                                <div class="hpv-preventative-methods__ways">
+                                    <div class="hpv-preventative-methods__way">
+                                        <div class="hpv-preventative-way__icon-description border">
+                                            <div class="hpv-preventative-way__icon-circle"></div>
+                                            <img src="img/icon-phong-ve-xanh.png" alt="icon phong ve xanh" class="hpv-preventative-way___icon">
+                                        </div>
+                                        <div class="hpv-preventative-way__description">Tiêm vắc xin HPV</div>
+                                    </div>
+                                    <div class="hpv-preventative-methods__way">
+                                        <div class="hpv-preventative-way__icon-description border">
+                                            <div class="hpv-preventative-way__icon-circle"></div>
+                                            <img src="img/icon-khong-an-toan-vang-xanh.png" alt="icon phong ve xanh" class="hpv-preventative-way___icon">
+                                        </div>
+                                        <div class="hpv-preventative-way__description">Quan hệ tình dục lành mạnh, an<br>toàn, vệ sinh sinh dục đúng cách</div>
+                                    </div>
+                                    <div class="hpv-preventative-methods__way">
+                                        <div class="hpv-preventative-way__icon-description">
+                                            <div class="hpv-preventative-way__icon-circle"></div>
+                                            <img src="img/icon-loi-song-lanh-manh-vang.png" alt="icon phong ve xanh" class="hpv-preventative-way___icon">
+                                        </div>
+                                        <div class="hpv-preventative-way__description border">Thực hiện lối sống lành mạnh:<br>không hút thuốc lá, tăng cường<br>vận động thể lực, dinh dưỡng hợp lý</div>
+                                    </div>
+                                </div>
+                                <div class="hpv-preventative-methods__buttons">
+                                </div>
+                            </div>
+                            <div class="hpv-preventative-methods__models border">
+                                <picture>
+                                    <source srcset="img/model-preventation-methods.png" media="(max-width:991px)">
+                                    <img src="img/model-preventation-methods.png" alt="Các phương pháp phòng tránh HPV" class="hpv-preventative-methods__model">
+                                </picture>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <aside class=""></aside>
+    </main>
+    <div class="dimension" style="position:fixed; bottom:0 ">
+        <p id="width"></p>
+        <p id="height"></p>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        function toggleActive(tagElement, type) {
+            const tags = document.querySelectorAll('.title-classify__tag');
+            tags.forEach(tag => tag.classList.remove('active'));
+
+            const statistics = document.querySelectorAll('.common-hpv-diseases__statistic');
+            statistics.forEach(stat => stat.classList.remove('active'));
+
+            const images = document.querySelectorAll('.common-hpv-diseases__image');
+            images.forEach(image => image.classList.remove('active'));
+
+            tagElement.classList.add('active');
+
+            const relatedStatistics = document.querySelectorAll(`.statistic-${type}`);
+            relatedStatistics.forEach(stat => {
+                stat.classList.add('active');
+            });
+
+            if (type === 'male') {
+                document.querySelector('.common-hpv-diseases__image.male').classList.add('active');
+            } else if (type === 'female') {
+                document.querySelector('.common-hpv-diseases__image.female').classList.add('active');
+            } else if (type === 'both-genders') {
+                document.querySelectorAll('.common-hpv-diseases__image').forEach(image => {
+                    image.classList.add('active');
+                });
+            }
+        }
+
+        document.getElementById('male-img').addEventListener('click', () => {
+            document.getElementById('male-tag').click();
+        });
+
+        document.getElementById('female-img').addEventListener('click', () => {
+            document.getElementById('female-tag').click();
+        });
+    </script>
+  </body>
+</html>

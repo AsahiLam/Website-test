@@ -10,8 +10,13 @@ aside {
 .hpv-infection-paths {
   overflow: hidden;
   padding: 16rem 3rem;
-  background-color: #a1eee9;
-  background-image: linear-gradient(135deg, #a1eee9 0%, #bae5e6 48%, #71a6e1 96%);
+  /* background-color: #a1eee9; */
+  /* background-image: linear-gradient(
+    135deg,
+    #a1eee9 0%,
+    #bae5e6 48%,
+    #71a6e1 96%
+  ); */
 }
 
 .hpv-infection-paths__wrapper {
@@ -66,21 +71,20 @@ aside {
 }
 
 .hpv-infection-paths__content-box {
-  width: 38%;
   position: absolute;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 5rem;
+  align-items: center;
 }
 
 .hpv-infection-paths__content-box::after {
   content: "";
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: -2rem;
+  left: 0;
   width: 29rem;
-  max-width: 300px;
-  height: 80%;
+  height: 12rem;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.31) 0%,
@@ -90,39 +94,50 @@ aside {
 }
 
 .hpv-infection-paths__content-box:nth-child(1) {
-  top: 5%;
-  left: 53%;
+  top: 5em;
+  left: 61em;
 }
 
 .hpv-infection-paths__content-box:nth-child(2) {
-  top: 32%;
-  left: 60%;
+  top: 26em;
+  left: 69em;
 }
 
 .hpv-infection-paths__content-box:nth-child(3) {
-  top: 62%;
-  left: 61%;
+  top: 47em;
+  left: 70em;
 }
 
 .hpv-infection-paths__content-box:nth-child(4) {
-  top: 87.5%;
-  left: 57%;
+  top: 67em;
+  left: 65em;
 }
 
 .hpv-infection-paths__contents .content-box__images {
-  justify-items: center;
-  align-content: center;
-  width: 38%;
+  width: 12rem;
   height: 100%;
-  max-width: 17rem;
-  aspect-ratio: 1 / 1;
-  border-radius: 100%;
-  background: #e0f5f3;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hpv-infection-paths__contents .content-box__image {
-  width: 70%;
+  height: inherit;
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hpv-infection-paths__contents .content-box__circle {
+  content: "";
+  position: absolute;
+  background: #e0f5f3;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background: #e0f5f3;
+  z-index: 0;
 }
 
 .content-box__description {
@@ -143,10 +158,6 @@ aside {
     flex-direction: column;
   }
 
-  .hpv-infection-paths__model {
-    width: 70%;
-  }
-
   .hpv-infection-paths__title {
     display: flex;
     position: unset;
@@ -156,99 +167,143 @@ aside {
   }
 
   .hpv-infection-paths__mina {
-    aspect-ratio: 309.88 / 380.95;
     margin-top: 6%;
   }
 
   .hpv-infection-paths__circles {
-    aspect-ratio: 402.67 / 333.04;
     top: 2%;
     left: -10%;
   }
-
-  .hpv-infection-paths__content-box::after {
-    height: 100%;
-    top: 0;
-    left: 5%;
-    width: 20rem;
-  }
-
   .hpv-infection-paths__content-box {
     gap: 0.5rem;
+  }
+
+  aside {
+    display: none;
   }
 }
 
 @media (max-width: 575px) {
-  .hpv-infection-paths__model {
-    width: 60%;
+  .hpv-infection-paths__mina {
+    width: 25rem;
   }
 
   .hpv-infection-paths__circles {
-    top: 0;
-    left: -10%;
-    width: 90%;
+    left: 0rem;
+    top: 2.5rem;
+    width: 32rem;
   }
 
   .hpv-infection-paths__title {
     font-size: 0.79185520362rem;
   }
+
+  .content-box__description {
+    font-size: 0.90497737556rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    padding: 1.5rem;
+    width: 9rem;
+  }
   
-  .hpv-infection-paths__content-box{
-    width: 45%;
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    padding: 1.5rem;
+    width: 7rem;
+  }
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .content-box__circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    border-radius: 16px;
+    height: 6em;
+    width: 20rem;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.31) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .hpv-infection-paths__content-box::after {
+    height: 0;
   }
 
   .hpv-infection-paths__content-box:nth-child(1) {
-    top: 8%;
-    left: 40%;
+    top: 4rem;
+    left: 18rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(2) {
-    top: 25%;
-    left: 52%;
+    top: 11rem;
+    left: 22rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(3) {
-    top: 47%;
-    left: 52%;
+    top: 20rem;
+    left: 22rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(4) {
-    top: 63%;
-    left: 45%;
-  }
-  
-  .content-box__description--break-line{
-    display:none;
-  }
-
-  .content-box__description{
-    font-size: 1rem;
+    top: 27rem;
+    left: 19rem;
   }
 }
 
-@media (max-width: 320px) {
-  .hpv-infection-paths__content-box{
-    width: 50%;
+@media (max-width: 374px) {
+  .hpv-infection-paths__mina {
+    width: 20rem;
+  }
+  .hpv-infection-paths__circles {
+    width: 25rem;
   }
 
+  .content-box__description {
+    font-size: 0.79185520362rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    padding: 1.5rem;
+    width: 6rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .content-box__circle::before {
+    height: 5rem;
+  }
   .hpv-infection-paths__content-box:nth-child(1) {
-    top: 9%;
-    left: 39%;
+    top: 2rem;
+    left: 15rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(2) {
-    top: 25%;
-    left: 49%;
+    top: 8rem;
+    left: 17rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(3) {
-    top: 48%;
-    left: 49%;
+    top: 16rem;
+    left: 17rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(4) {
-    top: 64%;
-    left: 45%;
+    top: 22rem;
+    left: 15rem;
   }
 }
 
@@ -257,81 +312,166 @@ aside {
     font-size: 1.13122171946rem;
   }
 
-  .hpv-infection-paths__content-box{
-    width: 40%;
+  .hpv-infection-paths__mina {
+    width: 50rem;
   }
 
-  .hpv-infection-paths__content-box:nth-child(1) {
-    top: 15%;
-    left: 45%;
+  .content-box__circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.31) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
-  .hpv-infection-paths__content-box:nth-child(2) {
-    top: 30%;
-    left: 58%;
+  .hpv-infection-paths__circles {
+    left: 0;
+    top: 5rem;
+    width: 65rem;
   }
 
-  .hpv-infection-paths__content-box:nth-child(3) {
-    top: 50%;
-    left: 58%;
+  .hpv-infection-paths__contents .content-box__images {
+    padding: 1.5rem;
+    width: 11rem;
+  }
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 10rem;
+    height: 10rem;
   }
 
-  .hpv-infection-paths__content-box:nth-child(4) {
-    top: 68%;
-    left: 50%;
+  .hpv-infection-paths__content-box {
+    gap: 1rem;
+    width: 100%;
   }
 
   .content-box__description {
-    font-size: 1.35746606335rem;
+    font-size: 1.69683257919rem;
+  }
+
+  .hpv-infection-paths__content-box::after {
+    left: 5%;
+    top: 0;
+    height: 100%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 9rem;
+    left: 37rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 23rem;
+    left: 46rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 39rem;
+    left: 47rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 53rem;
+    left: 40rem;
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .hpv-infection-paths__content-box{
-    width: 40%;
+  .hpv-infection-paths__content-box {
+    gap: 4rem;
+    width: 100%;
+  }
+
+  .hpv-infection-paths__mina {
+    width: 60rem;
+  }
+
+  .hpv-infection-paths__circles {
+    width: 85rem;
+    left: -6%;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    width: 9rem;
+  }
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .hpv-infection-paths__content-box::after {
+    left: 2rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(1) {
-    top: 15%;
-    left: 45%;
+    top: 10rem;
+    left: 44rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(2) {
-    top: 30%;
-    left: 58%;
+    top: 30rem;
+    left: 51rem;
   }
-
   .hpv-infection-paths__content-box:nth-child(3) {
-    top: 50%;
-    left: 58%;
+    top: 50rem;
+    left: 52rem;
   }
 
   .hpv-infection-paths__content-box:nth-child(4) {
-    top: 65%;
-    left: 50%;
+    top: 68rem;
+    left: 48rem;
   }
-  
+
   .content-box__description {
     font-size: 1.80995475113rem;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1599px) {
+  .hpv-infection-paths__title {
+    font-size: 1.34854771784rem;
+  }
+
+  .hpv-infection-paths__circles {
+    width: 95%;
+  }
+
+  .content-box__description {
+    font-size: 1.24481327801rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .hpv-infection-paths__content-box::after {
+    left: 5rem;
+    top: -10%;
+    height: 120%;
+  }
+
   .hpv-infection-paths__content-box:nth-child(1) {
     top: 10%;
-    left: 58%;
+    left: 50%;
   }
+
   .hpv-infection-paths__content-box:nth-child(2) {
-    top: 36%;
-    left: 64%;
+    top: 35%;
+    left: 62%;
   }
+
   .hpv-infection-paths__content-box:nth-child(3) {
     top: 64%;
-    left: 64%;
+    left: 63%;
   }
+
   .hpv-infection-paths__content-box:nth-child(4) {
-    top: 87.5%;
-    left: 60%;
+    top: 90%;
+    left: 59%;
   }
 }
 
@@ -351,6 +491,45 @@ aside {
   .content-box__description {
     font-size: 1.03734439834rem;
   }
+
+  .hpv-infection-paths__circles {
+    width: 95%;
+  }
+
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .hpv-infection-paths__content-box::after {
+    top: -10%;
+    left: 0;
+    height: 120%;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    width: 7rem;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 10%;
+    left: 50%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 35%;
+    left: 62%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 64%;
+    left: 63%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 90%;
+    left: 59%;
+  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -359,24 +538,162 @@ aside {
   }
 
   .hpv-infection-paths__content-box {
-    gap: 1rem;
+    gap: 2.5rem;
   }
 
   .content-box__description {
-    font-size: 1.24481327801rem;
+    font-size: 1.14107883817rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__images {
+    width: 7rem;
+  }
+
+  .hpv-infection-paths__contents .content-box__circle {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .hpv-infection-paths__content-box::after {
+    left: 0;
+    top: -10%;
+    height: 120%;
+  }
+
+  .hpv-infection-paths__content-box:nth-child(1) {
+    top: 15%;
+    left: 55%;
+  }
+  .hpv-infection-paths__content-box:nth-child(2) {
+    top: 40%;
+    left: 64%;
+  }
+  .hpv-infection-paths__content-box:nth-child(3) {
+    top: 66%;
+    left: 64%;
+  }
+  .hpv-infection-paths__content-box:nth-child(4) {
+    top: 90%;
+    left: 62%;
   }
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
-  .hpv-infection-paths__title {
-    font-size: 1.34854771784rem;
-  }
+  /* .hpv-infection-paths__mina{
+    width: 90%;
+  } */
+}
 
-  .hpv-infection-paths__contents .content-box__image {
-    width: 60%;
-  }
 
-  .content-box__description {
-    font-size: 1.65975103734rem;
-  }
+/*
+
+
+
+*/
+
+.hpv-preventative-methods{
+  margin-top:10rem;
+  width:100%;
+  height:500px;
+}
+.hpv-preventative-methods__wrapper{
+  height: inherit;
+  display: flex;
+  position:relative;
+}
+
+.hpv-preventative-methods__wrapper::before{
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  mask-image: linear-gradient(162.67deg, rgba(217, 217, 217, 0) 43.47%, #737373 86.04%); 
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(265.39deg, #00CBEB 0%, #00CFA9 100%);
+  z-index: -1;
+}
+
+.hpv-preventative-methods__contents{
+  width: 55%;
+  font-size: 1.03734439834rem;
+  margin-left: 4.5em;
+  display:flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.hpv-preventative-methods__title{
+  font-weight: 700;
+  font-size: 3.13333333333em;
+  letter-spacing: -0.2rem;
+  color: #009585;
+}
+
+.hpv-preventative-methods__ways{
+  margin-left: 3.5em;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 4.5em;
+}  
+
+.hpv-preventative-methods__buttons{
+}
+
+.hpv-preventative-methods__models{
+  width: 55%;
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+
+.hpv-preventative-methods__model{    
+  width: inherit;
+  height: auto;
+  aspect-ratio: 1350 / 1136;
+}
+
+.hpv-preventative-methods__way{
+  font-size: 1.03734439834rem;
+  height: 100%;
+  display:flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
+.hpv-preventative-way__icon-description{
+  width: 4em;
+  height: 100%;
+  position: relative;
+  align-content: center;
+}
+
+.hpv-preventative-way__icon-circle{
+  position:absolute;
+  background: #FFFFFF99; 
+  width: 5.5em;
+  height: 5.5em;
+  top: 0;
+  left: 0;
+  transform: translate(-15%,-20%);
+  border-radius: 50%;
+  z-index:0;
+}
+
+.hpv-preventative-way___icon{
+  position:relative;
+  z-index: 1;
+  width:inherit;
+  height: auto;
+}
+
+.hpv-preventative-way__description{
+  font-size: 2em;
+  align-content: center;
+  font-weight: 400;
+  color: #39514D;
 }
